@@ -59,6 +59,15 @@ class Consumer {
  * initiates the consumer
  */
 object Consumer extends App {
-  val consumer = new Consumer
-  consumer.readFromKafka("tweet_new_topic")
+  val logger = LoggerFactory.getLogger(Consumer.getClass+"_main")
+  if (args.length > 0){
+    val topic : String = args(0)
+    val consumer = new Consumer
+    consumer.readFromKafka(topic)
+  }
+  else
+   logger.error("Please submit the necessary parameters to the class. "+
+   " Usage >> " +
+     " kafka.Consumer <topic name>"
+   )
 }

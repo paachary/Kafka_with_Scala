@@ -1,6 +1,7 @@
 package kafka
 
 import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord}
+import org.slf4j.LoggerFactory
 
 /**
  * This class is responsible for
@@ -35,6 +36,15 @@ class Producer {
  * initiates the producer
  */
 object Producer extends  App {
-  val producer = new Producer
-  producer.writeToKafka("new_topic")
+  val logger = LoggerFactory.getLogger(Producer.getClass+"_main")
+  if (args.length > 0){
+    val topic : String = args(0)
+    val producer = new Producer
+    producer.writeToKafka(topic)
+  }
+  else
+    logger.error("Please submit the necessary parameters to the class. "+
+      " Usage >> " +
+      " kafka.Producer <topic name>"
+    )
 }

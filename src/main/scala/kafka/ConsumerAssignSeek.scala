@@ -4,6 +4,7 @@ import java.util
 
 import org.apache.kafka.clients.consumer._
 import org.apache.kafka.common.TopicPartition
+import org.slf4j.LoggerFactory
 
 import scala.collection.JavaConverters._
 
@@ -48,6 +49,16 @@ class ConsumerAssignSeek {
  * initiates the consumer
  */
 object  ConsumerAssignSeek extends App {
-  val consumerAssignSeek = new ConsumerAssignSeek
-  consumerAssignSeek.readFromKafka("first_topic")
+
+  val logger = LoggerFactory.getLogger(Consumer.getClass+"_main")
+  if (args.length > 0){
+    val topic : String = args(0)
+    val consumerAssignSeek = new ConsumerAssignSeek
+    consumerAssignSeek.readFromKafka(topic)
+  }
+  else
+    logger.error("Please submit the necessary parameters to the class. "+
+      " Usage >> " +
+      " kafka.ConsumerAssignSeek <topic name>"
+    )
 }
