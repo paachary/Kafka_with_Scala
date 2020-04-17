@@ -9,8 +9,7 @@ import scala.collection.JavaConverters._
 
 /**
  * This class is responsible for
- * Consuming data from Kafka via a kafka topic and set of
- * required Kafka Configuration properties
+ * Consuming data from Kafka Topic with a set of required Kafka Configuration properties
  *
  */
 class Consumer {
@@ -60,7 +59,6 @@ class Consumer {
  * initiates the consumer
  */
 object Consumer extends App {
-
   val consumer = new Consumer
   consumer.readFromKafka("tweet_new_topic")
 }

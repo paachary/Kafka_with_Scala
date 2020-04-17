@@ -6,6 +6,10 @@ import org.apache.kafka.clients.consumer.ConsumerConfig
 import org.apache.kafka.clients.producer.ProducerConfig
 import org.apache.kafka.common.serialization.{StringDeserializer, StringSerializer}
 
+/**
+ * A helper class for storing all the configuration parameters
+ * required by the kafka consumer and kafka producer
+ */
 class Constants {
 
   val props = new Properties()
