@@ -1,6 +1,7 @@
 package kafka
 
 import java.util
+import java.util.Properties
 
 import org.apache.kafka.clients.consumer._
 import org.slf4j.LoggerFactory
