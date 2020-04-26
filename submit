@@ -1,0 +1,2 @@
+spark-submit --packages org.apache.kafka:kafka-clients:2.4.1 --class kafka.Consumer --master local[*] target/scala-2.11/kafka_with_scala_2.11-0.1.jar tweet_new_topic
+
