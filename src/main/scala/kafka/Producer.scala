@@ -22,8 +22,8 @@ class Producer {
 
     val producer = new KafkaProducer[String, String](props)
 
-    for ( counter <- 1 until 10 ) {
-      val record = new ProducerRecord[String, String] (topic, "key",
+    for ( counter <- 11 until 30 ) {
+      val record = new ProducerRecord[String, String] (topic, "key-"+counter,
                                                   "value_" + Integer.toString(counter))
       producer.send(record)
     }
